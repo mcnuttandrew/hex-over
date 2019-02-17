@@ -1,0 +1,22 @@
+{
+  "name": "hex-over",
+  "version": "0.0.1",
+  "description": "Simulate Opacity In Hex",
+  "main": "dist/hex-over.js",
+  "unpkg": "dist/hex-over.min.js",
+  "jsdelivr": "dist/hex-over.min.js",
+  "module": "src/index.js",
+  "repository": {
+    "type": "git"
+  },
+  "scripts": {
+    "pretest": "rollup -c",
+    "test": "tape 'test/*.js' && eslint src test"
+  },
+  "devDependencies": {
+    "eslint": "5",
+    "rollup": "0.64",
+    "rollup-plugin-terser": "1",
+    "tape": "4"
+  }
+}

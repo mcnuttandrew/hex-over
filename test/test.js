@@ -1,13 +1,15 @@
 const tape = require("tape");
-const {computeOver} = require("../");
+const hexOver = require('../').default;
 
-tape('Basic test', t => {
-  t.equal(computeOver('#ff0000', '#000000', 0.004), '#010000');
-  t.equal(computeOver('#f00', '#000000', 0.004), '#010000');
-  t.equal(computeOver('#f00', '#000', 0.004), '#010000');
+tape('HexOver', t => {
+  const pref1 = 'black background, red foregound';
+  t.equal(hexOver('#ff0000', '#000000', 0.004), '#010000', `${pref1} should execute correctly with long hexes`);
+  t.equal(hexOver('#f00', '#000000', 0.004), '#010000', `${pref1} should execute correctly with short foreground hex`);
+  t.equal(hexOver('#f00', '#000', 0.004), '#010000', `${pref1} should execute correctly with short hexes`);
 
-  t.equal(computeOver('#ff0000', '#ffffff', 0.004), '#fffefe');
-  t.equal(computeOver('#f00', '#ffffff', 0.004), '#fffefe');
-  t.equal(computeOver('#f00', '#fff', 0.004), '#fffefe');
+  const pref2 = 'black background, red foregound';
+  t.equal(hexOver('#ff0000', '#ffffff', 0.004), '#fffefe', `${pref2} should execute correctly with long hexes`);
+  t.equal(hexOver('#f00', '#ffffff', 0.004), '#fffefe', `${pref2} should execute correctly with short foreground hex`);
+  t.equal(hexOver('#f00', '#fff', 0.004), '#fffefe', `${pref2} should execute correctly with short hexes`);
   t.end();
 });
